@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atlantic Market</title>
+    <link rel="stylesheet" href="theme.css">
+    <link rel="stylesheet" href="stylesheet.css">
+    <style>
+       .sidebar {
+    width: 12.5em; /* 200px */
+    background-color: rgba(255, 255, 255, 0.5);
+    padding: 0.625em; /* 10px */
+    display: flex;
+    flex-direction: column;
+    border-radius: 0.625em; /* 10px */
+    margin-left: -7.5em; /* -120px */
+}
+
+.sidebar ul {
+    list-style: none;
+    font-weight: bold;
+    padding: 0;
+    margin: 0;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.sidebar li {
+    font-family: calibri;
+    margin: 0.3125em; /* 5px */
+    padding-bottom: 2.5em; /* 40px */
+}
+
+.sidebar a {
+    text-decoration: none;
+    color: black;
+    display: block;
+    padding: 0.3125em; /* 5px */
+    opacity: 1;
+}
+
+.mainContent {
+    margin: 0 auto;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.5);
+    margin-top: -20.3125em; /* -325px */
+    margin-left: 15.625em; /* 250px */
+    padding: 0.625em; /* 10px */
+}
+
+.category-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.25em; /* 20px */
+    align-items: flex-start;
+}
+
+.category-card {
+    background-color: #ffffff;
+    border: 0.0625em solid #ddd; /* 1px */
+    width: calc(33.3% - 1.25em); /* 20px */
+    padding: 0.625em; /* 10px */
+    box-shadow: 0 0.0625em 0.1875em rgba(0, 0, 0, 0.1); /* 1px 3px */
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.category-card img {
+    width: 100%;
+    height: 15.625em; /* 250px */
+    background-color: #ccc;
+    border: 0.125em solid #ddd; /* 2px */
+    padding: 0.3125em; /* 5px */
+    box-sizing: border-box;
+    border-radius: 0.625em; /* 10px */
+}
+
+.category-label {
+    font-size: 1em; /* 16px */
+    font-weight: bold;
+    margin-top: 0.625em; /* 10px */
+}
+
+.offer-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.25em; /* 20px */
+    justify-content: flex-start;
+}
+
+.offer-card {
+    background-color: #ffffff;
+    border: 0.0625em solid #ddd; /* 1px */
+    width: calc(33.3% - 1.25em); /* 20px */
+    padding: 0.625em; /* 10px */
+    box-shadow: 0 0.0625em 0.1875em rgba(0, 0, 0, 0.1); /* 1px 3px */
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.offer-card img {
+    width: 100%;
+    height: 18.75em; /* 300px */
+    background-color: #ccc;
+    border: 0.125em solid #ddd; /* 2px */
+    padding: 0.3125em; /* 5px */
+    box-sizing: border-box;
+    border-radius: 0.625em; /* 10px */
+}
+
+h2.vision {
+    display: flex;
+    width: 30%;
+    height: 40%;
+    text-align: center;
+    align-items: center;
+    margin-left: -30%;
+}
+
+.offer-label {
+    font-size: 1em; /* 16px */
+    font-weight: bold;
+    margin-top: 0.625em; /* 10px */
+}
+
+.reviews-section {
+    margin: 1.25em; /* 20px */
+    padding: 0.625em; /* 10px */
+    border: 0.0625em solid #ccc; /* 1px */
+    background-color: #f9f9f9;
+}
+
+.reviews-section h2 {
+    text-align: center;
+    font-size: 1.5em;
+    margin-bottom: 1.25em; /* 20px */
+}
+
+.review-card {
+    width: calc(33.3% - 1.25em);
+    background-color: white;
+    padding: 0.9375em; /* 15px */
+    margin-bottom: 0.625em; /* 10px */
+    border: 0.0625em solid #ddd; /* 1px */
+    border-radius: 0.3125em; /* 5px */
+}
+
+.review-card p {
+    margin: 0;
+    font-size: 1em;
+    color: #333;
+}
+
+.stars {
+    margin-top: 0.625em; /* 10px */
+    color: #f5b50a;
+}
+
+.stars span {
+    font-size: 1.2em;
+    margin-right: 0.125em; /* 2px */
+}
+
+.reviews-container {
+    display: flex;
+    justify-content: space-between;
+}
+@media (max-width: 1024px) {
+    .sidebar {
+        width: 15em; /* Adjust sidebar width */
+        margin-left: 0;
+        margin-bottom: 1.25em;
+    }
+
+    .mainContent {
+        margin-left: 0;
+        padding: 1.25em;
+    }
+
+    .offer-card, .category-card, .review-card {
+        width: calc(50% - 1.25em);
+    }
+
+    .reviews-container {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+/* Small screens (phones) */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 100%; /* Full width */
+        display: none; /* Hide sidebar on smaller screens */
+    }
+
+    .navbar ul {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .mainContent {
+        margin: 0 auto;
+        padding: 1em;
+    }
+
+    .offer-card, .category-card, .review-card {
+        width: 100%;
+        margin: 0.5em 0;
+    }
+
+    .reviews-container {
+        flex-direction: column;
+    }
+
+    .vision {
+        width: 100%;
+        text-align: center;
+        margin-left: 0;
+        margin-top: 20px;
+    }
+
+    .offer-list, .category-list {
+        flex-direction: column;
+        gap: 1em;
+    }
+}
+.menu-items {
+    display: flex;
+}
+
+@media (max-width: 768px) {
+    .menu-items {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+}
+
+.menu-toggle {
+    display: none;
+    font-size: 1.5em;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+/* Show the menu when toggled */
+.menu-items.show {
+    display: flex;
+}   
+footer .contact-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.week-display .mainContent{
+    text-align: center;
+    background: linear-gradient(135deg, #4a90e2, #50c878);
+    color: white;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+    font-family: "Poppins", sans-serif;
+    max-width: 400px;
+    margin: 30px auto;
+}
+
+/* Style for the date text */
+.week-display h2 .mainContent{
+    margin: 0;
+    font-size: 1.5rem;
+    letter-spacing: 1px;
+}
+.hidden {
+    display: none;
+}
+
+#moreButton {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #031c2f;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#moreButton:hover {
+    background-color: #123a5a;
+}
+
+.reviews-container {
+    display: flex; /* Align items in a row */
+    /* Wrap to the next line if there's not enough space */
+    justify-content: space-between; /* Add spacing between cards */
+    gap: 5px; /* Space between cards */
+}
+
+.review-card {
+    background: #f9f9f9;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    width: 30%; /* Adjust width to fit 3 cards per row */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+.review-details {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(227, 218, 218, 0.85);
+    color: #fff;
+    padding: 10px;
+    border-radius: 8px;
+    display: none; /* Hidden by default */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    z-index: 10;
+    box-sizing: border-box; 
+}
+.review-image {
+    width: 80px; /* Set fixed width */
+    height: 80px; /* Set fixed height */
+    border-radius: 0; /* Remove circular border */
+    object-fit: cover; /* Ensure the image scales without distortion */
+    margin-bottom: 10px; /* Add space below the image */
+}
+
+.stars {
+    color: #ffa500; /* Orange for stars */
+    margin-top: 10px;
+}
+.review-card:hover {
+    cursor: pointer;
+}
+
+.review-card:hover .review-details {
+    display: flex;
+}
+
+    </style>
+</head>
+<body onload="onload()">
+    <header>
+        <div class="logo">
+           <a href="Home.html" accesskey="h"> <img src="logo.png" alt="atlantic"></a>
+        </div>
+        <nav class="navbar">
+            <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+            <ul class="menu-items">
+                <li><a href="women.html" accesskey="w">Women</a></li>
+                <li><a href="kids.html" accesskey="k">Kids</a></li>
+                <li><a href="men.html" accesskey="m">Men</a></li>
+            </ul>
+            <div class="searchClass">
+                <input type="text" name="search" value="Search...">
+                <button class="searchbutton" accesskey="s">Search</button>
+                <img src="moon-png.png" alt="dark" id="themeButton" onclick="darkmode()"  >
+                
+            </div>
+            <script>
+                function darkmode() {
+    const wasDarkmode = localStorage.getItem('darkmode') === 'true';
+    localStorage.setItem('darkmode', !wasDarkmode);
+    const element = document.body;
+    element.classList.toggle('dark-mode', !wasDarkmode);
+    /*
+    // Update the button text
+    <button type="button" id="themeButton" onclick="darkmode()"><img src="moon-png.png" alt="dark"></button>
+    const themeButton = document.getElementById('themeButton');
+    themeButton.textContent = wasDarkmode ? 'Light Mode' : 'Dark Mode';
+    */
+  }
+  
+  function onload() {
+    const isDarkmode = localStorage.getItem('darkmode') === 'true';
+    document.body.classList.toggle('dark-mode', isDarkmode);
+    /*
+    // Update the button text
+    const themeButton = document.getElementById('themeButton');
+    themeButton.textContent = isDarkmode ? 'Dark Mode' : 'Light Mode';
+    */
+  }
+  
+  function displayWeekStartDate() {
+    // Get today's date
+    const today = new Date();
+
+    // Get the current day of the week (0 for Sunday, 1 for Monday, etc.)
+    const dayOfWeek = today.getDay();
+
+    // Calculate the start of the week (assuming Sunday as the start of the week)
+    const startOfWeek = new Date(today);
+    startOfWeek.setDate(today.getDate() - dayOfWeek);
+
+    // Format the date (e.g., "Sunday 7 February")
+    const options = { weekday: 'long', day: 'numeric', month: 'long' };
+    const formattedDate = startOfWeek.toLocaleDateString('en-US', options);
+
+    // Display the date on the page
+    const weekDisplay = document.getElementById('weekStartDate');
+    weekDisplay.textContent = `This week starts on: ${formattedDate}`;
+}
+
+// Call the function on page load
+window.onload = displayWeekStartDate;
+function showMoreOffers() {
+    // Get all the hidden offer cards
+    const hiddenOffers = document.querySelectorAll('.offer-card.hidden');
+
+    // Loop through and show them
+    hiddenOffers.forEach(offer => {
+        offer.classList.remove('hidden');
+    });
+
+    // Hide the "More" button after showing all offers
+    const moreButton = document.getElementById('moreButton');
+    moreButton.style.display = 'none';
+}
+            </script>
+        </nav>
+    </header>
+
+    <div class="container">
+    <main>
+        <aside class="sidebar">
+            
+            <ul>
+                
+                <li><a href="seller.html" accesskey="d">Seller's Dashboard<br></a></li>
+                <li><a href="orderpage.html" accesskey="o">Order's Page<br></a></li>
+                <li><a href="main-category.html" accesskey="c">Category Page<br></a></li>
+                <li><a href="cart.html" accesskey="a">Cart Page</a></li>
+                
+            </ul>
+       
+        </aside>
+
+        <div class="mainContent">
+            <div class="image-container">
+                <img src="Lovepik.png" alt="Background" class="background-image">
+                <div class="overlay-text">
+                    <h2 id="weekStartDate"></h2>
+                </div>
+            </div>
+            
+            
+            <div class="vision">
+
+                <h2>Vision</h2>
+            <p><br><em>Our vision at Atlantic Market is to simplify the process of selling and buying different kinds of products online, Our services are unlimited and we always aim to please both the seller and the buyer. providing a compilling experince is our goal.</em></p>
+        </div>
+            <section class="offers">
+                <h1>New offers!</h1>
+                
+                    <div class="offer-list">
+                        <div class="offer-card">
+                            <img src="offer1.jpg" alt="offer1">
+                            <div class="offer-label">Spring Sale Finally Started!</div>
+                        </div>
+                                <div class="offer-card">
+                                    <img src="offer2.jpg" alt="offer2">
+                                    <div class="offer-label">Mega Sales For Womens Shoes</div>
+                                </div>
+                                <div class="offer-card">
+                                <img src="offer3.jpg" alt="offer3">
+                                    <div class="offer-label">Buy One Get Two For Free</div>
+                                </div>
+                                <div class="offer-card hidden">
+                                <img src="offer4.jpg" alt="offer4">
+                                    <div class="offer-label">HOT PRICES FOR NEW USERS!</div>
+                                </div>
+                                <div class="offer-card hidden">
+                                    <img src="offer5.jpg" alt="offer5">
+                                        <div class="offer-label">DONT MISS ON THE WINTER SALES</div>
+                                    </div>
+                                    <div class="offer-card hidden">
+                                        <img src="offer6.jpg" alt="offer6">
+                                            <div class="offer-label">Women's Hair Products Are Almost Out Of Stock</div>
+                                        </div>
+                                </div>
+                                <button id="moreButton" onclick="showMoreOffers()">More</button>
+                   
+                
+
+                <h2>Categories</h2>
+                <div class="categories">
+                    <div class="category-list">
+                        <div class="category-card">
+                            <a href="kids.html" accesskey="k">
+                            <img src="new-kidShirt.png" alt="category Image">
+                        </a>
+                            <div class="category-label">Kids</div>
+                        </div>
+
+                        <div class="category-card">
+                            <a href="women.html" accesskey="w">
+                            <img src="new-womenShoes.png" alt="category Image">
+                            </a>
+                            <div class="category-label">Women</div>
+                        </div>
+
+                        <div class="category-card">
+                            <a href="men.html" accesskey="m">
+                                <img src="new-menWatch.jpg" alt="category Image">
+                            </a>
+                            <div class="category-label">Men</div>
+                        </div>
+ 
+                    </div>
+                    
+                </div>
+            <!--  
+                <section class="reviews-section">
+                    <h2>Reviews</h2>
+                    <div class="reviews-container">
+                        <div class="review-card">
+                            <p><strong>got these shoes last week off the sales and they fit me perfectly!</strong><br>product name:Basketball Shoes </p>
+                            <div class="stars">
+                                <span>★</span><span>★</span><span>★</span><span>☆</span><span>☆</span>
+                            </div>
+                        </div>
+                        <div class="review-card">
+                            <p><strong>ordered this women's body perfume and everyone asked me about it</strong><br>product name:baccarat rouge 540 eau de parfum</p>
+                            <div class="stars">
+                                <span>★</span><span>★</span><span>★</span><span>★</span><span>☆</span>
+                            </div>
+                        </div>
+                        <div class="review-card">
+                            <p><strong>got my kid this shirt and he loved it, good quality</strong><br>product name:cotton shirt for kids</p>
+                            <div class="stars">
+                                <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                -->
+                <section class="reviews-section">
+                    <h2>Reviews</h2>
+                    <div class="reviews-container">
+                        <div class="review-card" onmouseover="showDetails(this)" onmouseout="hideDetails(this)">
+                            <img src="shh.png" alt="Customer 1" class="review-image">
+                            <p><strong>Got these shoes last week off the sales and they fit me perfectly!</strong></p>
+                            <div class="stars">
+                                <span>★</span><span>★</span><span>★</span><span>☆</span><span>☆</span>
+                            </div>
+                            <!-- Hidden details -->
+                            <div class="review-details">
+                                <p><strong>Customer:</strong> John Doe</p>
+                                <p><strong>Product:</strong> Basketball Shoes</p>
+                                <p><strong>Rating:</strong> 3/5</p>
+                                <p>"Great for the price, highly recommend!"</p>
+                            </div>
+                        </div>
+                        <div class="review-card" onmouseover="showDetails(this)" onmouseout="hideDetails(this)">
+                            <img src="bodyp.jpg" alt="Customer 2" class="review-image">
+                            <p><strong>Ordered this women's body perfume and everyone asked me about it</strong></p>
+                            <div class="stars">
+                                <span>★</span><span>★</span><span>★</span><span>★</span><span>☆</span>
+                            </div>
+                            <!-- Hidden details -->
+                            <div class="review-details">
+                                <p><strong>Customer:</strong> Sarah Smith</p>
+                                <p><strong>Product:</strong> Baccarat Rouge 540 Eau de Parfum</p>
+                                <p><strong>Rating:</strong> 4/5</p>
+                                <p>"The scent is luxurious and long-lasting."</p>
+                            </div>
+                        </div>
+                        <div class="review-card" onmouseover="showDetails(this)" onmouseout="hideDetails(this)">
+                            <img src="kidst.jpg" alt="Customer 3" class="review-image">
+                            <p><strong>Got my kid this shirt and he loved it, good quality</strong></p>
+                            <div class="stars">
+                                <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                            </div>
+                            <!-- Hidden details -->
+                            <div class="review-details">
+                                <p><strong>Customer:</strong> Mary Johnson</p>
+                                <p><strong>Product:</strong> Cotton Shirt for Kids</p>
+                                <p><strong>Rating:</strong> 5/5</p>
+                                <p>"Exceptional quality, would buy again!"</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+            </section>
+        </div>
+        
+    </main>
+</div>
+    <footer>
+        <div class="contact-info">
+            <strong>Contact Us:</strong>
+            <div class="contact-item" accesskey="p">
+                <img src="phone.jpg" alt="Phone Icon"> +966507443395
+            </div>
+            <div class="contact-item" accesskey="p" >
+                <img src="phone2.jpg" alt="Phone Icon"> 0114738434
+            </div>
+            <div class="contact-item" accesskey="e">
+                <img src="email.jpg" alt="Email Icon"> AtlanticMarket@gmail.com
+            </div>
+            <div>&copy;2024 Atlantic Market. All rights reserved.</div>
+        </div>
+    </footer>
+</body>
+</html>

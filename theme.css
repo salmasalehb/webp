@@ -1,0 +1,187 @@
+/*darkmode*/
+.dark-mode {
+    background-image: url("C:/Users/salma/OneDrive/Desktop/fas/black-background.jpg");
+  color:whitesmoke
+  }
+
+  .dark-mode .navbar {
+
+    background: #e2e5e8;
+}
+/*
+.dark-mode li a {
+  
+    color: rgb(255, 255, 255);
+  }
+*/
+.dark-mode .course {
+  
+    background-color: rgb(31, 37, 103);
+    box-shadow: 0 0 15px rgb(6, 1, 53);
+}
+
+.dark-mode .breadcrumb {
+   
+    background-color: #031c2f;
+   
+	border: 1px solid #BDBBBB;
+    border-top: 1px solid #BDBBBB;
+    border-bottom: 1px solid #BDBBBB;
+    
+}
+.dark-mode .offer-card{
+    background-color: #000305;
+    
+}
+.dark-mode .review-card {
+  background-color: #000305;
+}
+.dark-mode .reviews-section {
+  background-color: #000305;
+}
+
+.dark-mode .category-card{
+  background-color: #000305;
+  
+}
+.dark-mode .user-review{
+   
+    background: #052a46;
+}
+
+#themeButton {
+    width: 40px; /* Adjust to your desired size */
+    height: auto; /* Maintain aspect ratio */
+    cursor: pointer; /* Makes it clear that it's clickable */
+    margin-left: 10px; /* Optional: Add spacing if needed */
+}
+
+
+
+ /* Container for the image */
+.image-container {
+  position: relative;
+  display: inline-block;
+  width: 40%; /* Adjust as needed */
+  max-width: 600px; /* Adjust as needed */
+  margin: 10px auto;
+  overflow: hidden;
+  border-radius: 15px; /* Adds rounded corners */
+  margin-bottom: 10px;
+}
+
+/* Background image */
+.background-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3); /* Adds shadow */
+}
+
+/* Overlay text */
+.overlay-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  
+  color: black;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  font-family: "Poppins", sans-serif;
+  font-size: 0.5rem;
+  letter-spacing: 1px;
+  width: 60%; /* Adjust for text alignment */
+  
+}
+
+
+
+  
+  
+  .dark-mode footer a {
+    color:lightgrey;
+  }
+  .dark-mode .breadcrumb a {
+    color:lightgrey;
+  }
+  .dark-mode .teacherbox {
+  
+    background-color: #173a55;
+    box-shadow: 0 0 15px rgb(6, 1, 53);
+}
+.dark-mode fieldset{
+  background-color: #173a55;
+    box-shadow: 0 0 15px rgb(6, 1, 53); 
+}
+.dark-mode .mykids {
+  background-color: #173a55;
+    box-shadow: 0 0 15px rgb(6, 1, 53); 
+
+}
+.dark-mode .parent{
+  background-color: #031c2f;
+    box-shadow: 0 0 15px rgb(6, 1, 53); 
+}
+.dark-mode .k{
+  background-color: #173a55;
+  box-shadow: 0 0 15px rgb(6, 1, 53); 
+}
+
+.dark-mode .parents{
+  background-color: #173a55;
+    box-shadow: 0 0 15px rgb(6, 1, 53); 
+}
+.dark-mode .kid{
+  background-color: #031c2f;
+    box-shadow: 0 0 15px rgb(6, 1, 53); 
+}
+
+.dark-mode .cinfo{
+  background-color: #031c2f;;
+  box-shadow: 0 0 15px rgb(6, 1, 53); 
+}
+.dark-mode .course-details{
+  background-color: #173a55;
+  box-shadow: 0 0 15px rgb(6, 1, 53); 
+}
+.dark-mode .schedule{
+  color:  #031c2f;;  
+}
+.dark-mode th{
+  background-color:  #031c2f;;
+ color: white;
+}
+.dark-mode td{
+  background-color: rgb(16, 79, 127);
+  color: white;
+}
+.dark-mode tbody td.c{
+  background-color: rgb(16, 79, 127); 
+  color: white;
+}
+.dark-mode caption{
+color: white;
+}
+.dark-mode .student{
+  background-color: rgb(16, 79, 127);  
+}
+.dark-mode .Courses-Student{
+  background-color: rgb(16, 79, 127);  
+}
+ .dark-mode .Tutors-Courses{
+  background-color: rgb(16, 79, 127);  
+}
+.dark-mode .intro-box{
+  background-color: rgb(16, 79, 127);  
+}
+ .dark-mode .step1-box{
+  background-color: rgb(16, 79, 127);  
+}
+.dark-mode .step2-box{
+  background-color: rgb(16, 79, 127);  
+}
+.dark-mode .intro{
+  background-color: #173a55;  
+}
