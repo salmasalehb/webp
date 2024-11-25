@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ProductEvaluation</title>
+    <link rel="stylesheet" href="stylesheet.css">
+    <style>
+        .ProductEvaluation-title {
+            text-align: center;
+        }
+
+        .select-order {
+            margin: 1.25em auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        select {
+            font-size: 1.125em;
+            padding: 0.625em;
+            width: 12.5em;
+        }
+
+        .star-rating {
+            direction: rtl;
+            display: flex;
+            justify-content: center;
+        }
+
+        .star-rating input {
+            display: none;
+        }
+
+        .star-rating label {
+            font-size: 1.875em;
+            color: gray;
+        }
+
+        .star-rating input:checked ~ label {
+            color: gold;
+        }
+
+        .star-rating label:hover,
+        .star-rating label:hover ~ label {
+            color: gold;
+        }
+
+        .product-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 1.25em;
+        }
+
+        .product-image {
+            max-width: 9.375em;
+            height: auto;
+            margin-right: 1.25em;
+        }
+
+        .product-name {
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+
+        .feedback {
+            margin-top: 1.25em;
+            text-align: center;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: center;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <a href="Home.html">
+                <img src="logo.png" alt="atlantic">
+            </a>
+        </div>
+
+        <nav class="navbar">
+            <ul>
+                <li><a href="women.html" accesskey="1">Women</a></li>
+                <li><a href="kids.html" accesskey="2">Kids</a></li>
+                <li><a href="men.html" accesskey="3">Men</a></li>
+            </ul>
+            <div class="searchClass">
+                <input type="text" name="search" value="Search..." accesskey="s">
+                <button class="searchbutton" accesskey="f">Search</button>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <div class="breadcrumb">
+            <a href="Home.html">Home</a> <a href="userPage.html">> user page</a> > Product evaluation
+        </div>
+        <main>
+            <div class="ProductEvaluation-title">
+                <h1>Product Evaluation</h1>
+            </div>
+            <br><br><br>
+            <form id="evaluationForm" action="#" method="POST">
+                <div class="select-order">
+                    <h2>Select Order&nbsp;</h2>
+                    <select name="order" id="orderSelect" accesskey="o">
+                        <option value="Select Order">-------------------</option>
+                        <option value="order_a">Order A</option>
+                        <option value="order_b">Order B</option>
+                        <option value="order_c">Order C</option>
+                    </select>
+                </div>
+
+                <div class="select-order">
+                    <h2>Select Product &nbsp;</h2>
+                    <select name="product" id="productSelect" accesskey="p">
+                        <option value="Select Product">-------------------</option>
+                        <option value="product_a">Product A</option>
+                        <option value="product_b">Product B</option>
+                        <option value="product_c">Product C</option>
+                    </select>
+                </div>
+
+                <br>
+
+                <!-- Product Container -->
+                <div class="product-container">
+                    <img src="new-menWatch.jpg" alt="Product Image" class="product-image">
+                    <div class="product-name">men Watch</div>
+                </div>
+
+                <div class="star-rating">
+                    <input type="radio" id="star5" name="rating" value="5" accesskey="5">
+                    <label for="star5" title="5 stars">★</label>
+                    <input type="radio" id="star4" name="rating" value="4" accesskey="4">
+                    <label for="star4" title="4 stars">★</label>
+                    <input type="radio" id="star3" name="rating" value="3" accesskey="3">
+                    <label for="star3" title="3 stars">★</label>
+                    <input type="radio" id="star2" name="rating" value="2" accesskey="2">
+                    <label for="star2" title="2 stars">★</label>
+                    <input type="radio" id="star1" name="rating" value="1" accesskey="1">
+                    <label for="star1" title="1 star">★</label>
+                </div>
+
+                <br>
+                <div class="writing the feedback">
+                    <div class="feedback">Write your feedback: </div>
+                    <textarea name="feedback" rows="6" cols="64" placeholder="Enter your feedback here..." accesskey="t"></textarea>
+                </div>
+                <br>
+                <div class="button-container">
+                    <input type="submit" value="Submit" accesskey="s">
+                </div>
+            </form>
+        </main>
+    </div>
+
+    <footer>
+        <div class="contact-info">
+            <strong>Contact Us:</strong>
+            <div class="contact-item">
+                <img src="phone.jpg" alt="Phone Icon"> +966507443395
+            </div>
+            <div class="contact-item">
+                <img src="phone2.jpg" alt="Phone Icon"> 0114738434
+            </div>
+            <div class="contact-item">
+                <img src="email.jpg" alt="Email Icon"> AtlanticMarket@gmail.com
+            </div>
+            <div>&copy;2024 Atlantic Market. All rights reserved.</div>
+        </div>
+    </footer>
+
+    <script>
+        // Get the form, order select, product select, and radio buttons
+        const form = document.getElementById('evaluationForm');
+        const orderSelect = document.getElementById('orderSelect');
+        const productSelect = document.getElementById('productSelect');
+        const ratingInputs = document.getElementsByName('rating');
+
+        form.addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent form submission
+
+            // Get the selected order, product, and rating
+            const selectedOrder = orderSelect.value;
+            const selectedProduct = productSelect.value;
+            let userRating = null;
+
+            // Check for selected rating
+            for (let i = 0; i < ratingInputs.length; i++) {
+                if (ratingInputs[i].checked) {
+                    userRating = ratingInputs[i].value;
+                    break;
+                }
+            }
+
+            // Validation: Ensure an order is selected and a rating is given
+            if (selectedOrder === "Select Order" || selectedProduct === "Select Product" || userRating === null) {
+                alert("Please select both an order and a product, and provide a rating.");
+                return;
+            }
+
+            // Display the success message with the product and rating
+            alert(`Thank you for your feedback!\nYour rating for ${selectedProduct} is ${userRating}`);
+
+            // Redirect to the home page
+            window.location.href = 'Home.html';
+        });
+    </script>
+</body>
+</html>
