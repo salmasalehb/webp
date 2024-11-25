@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atlantic Market</title>
+    <link rel="stylesheet" href="stylesheet.css">
+    <style>
+        img {
+            height: 13%;
+            width: 13%; 
+        }
+        .userList {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            align-items: center;
+            flex: 1 1 auto;
+            margin: 0.8em;
+            background-color: rgba(255, 255, 255, 0.5); 
+            text-align: center;
+            font-size: 3em; 
+        }
+        .userList a {
+            color: black;
+            font-weight: bold;
+            text-decoration: none;
+            background-clip: content-box;
+            padding: 1.8em; 
+            text-align: center;
+        }
+        .userList a:hover {
+            background-color: #515151;
+            color: white;
+        }
+        #contlist {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            align-items: center;
+            flex: 1 1 auto;
+            margin: 1em; 
+        }
+    </style>
+</head>
+    
+<body>
+    <header>
+        <div class="logo">
+            <a href="Home.html">
+			<img src="logo.png" alt="atlantic">
+			</a>
+        </div>
+        <nav class="navbar">
+            <ul>
+                <li><a href="women.html" accesskey="w">Women</a></li>
+                <li><a href="kids.html" accesskey="k">Kids</a></li>
+                <li><a href="men.html" accesskey="m">Men</a></li>
+            </ul>
+            <div class="searchClass">
+                <input type="text" name="search" value="Search...">
+                <button class="searchbutton">Search</button>
+            </div>
+        </nav>
+    </header>
+        
+    <main>
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="Home.html" accesskey="h">Home</a> > User's page
+            </div>
+
+            <h1>USER PAGE</h1>
+            <div id="contlist">
+                <div class="userList">
+                    <img src="cartIcon.png" alt="" style="height:20%; width:20%;"><!-- all icons from Flaticon website-->
+                    <a href="cart.html" accesskey="c">YOUR CART</a>
+                </div>
+                <div class="userList">
+                    <img src="prevOrders.png" alt=""><!-- all icons from Flaticon website-->
+                    <a href="orderpage.html" accesskey="o">PREVIOUS ORDERS</a>
+                </div>
+                <div class="userList">
+                    <img src="Order_evaluation.png" alt=""><!-- all icons from Flaticon website-->
+                    <a href="Product evaluation.html" accesskey="e">PRODUCT EVALUATION</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="contact-info">
+            <strong>Contact Us:</strong>
+            <div class="contact-item">
+                <img src="phone.jpg" alt="Phone Icon"> +966507443395
+            </div>
+            <div class="contact-item">
+                <img src="phone2.jpg" alt="Phone Icon"> 0114738434
+            </div>
+            <div class="contact-item">
+                <img src="email.jpg" alt="Email Icon"> AtlanticMarket@gmail.com
+            </div>
+            <div>&copy;2024 Atlantic Market. All rights reserved.</div>
+        </div>
+    </footer>
+</body>
+</html>

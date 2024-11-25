@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Offers</title>
+    <link rel="stylesheet" href="stylesheet.css">
+    <style>
+        h1 {
+            text-align: center;
+        }
+        .offersInfo {
+            display: flex;
+            justify-content: space-between;
+            width: 90%;
+            margin: 0 auto;
+        }
+
+        .leftSide, .rightSide {
+            width: 45%;
+            padding: 0.625em;
+        }
+
+        main input, textarea, select {
+            width: 100%;
+            padding: 0.625em;
+            margin-bottom: 1.25em;
+            border: 0.0625em solid #ccc;
+            box-shadow: 0 0.25em 0.625em -0.1875em rgba(0, 0, 0, 0.1);
+        }
+
+        main button {
+            width: 30%;
+            padding: 0.625em;
+            margin-top: 1.25em;
+            background-color: #333;
+            color: white;
+            border: none;
+            border-radius: 0.3125em;
+            cursor: pointer;
+        }
+
+        button.cancelbutton {
+            background-color: #999;
+        }
+
+        button:hover {
+            opacity: 0.9;
+        }
+
+        .mainContent {
+            background-color: rgba(255, 255, 255, 0.5);
+            margin-bottom: 6.25em;
+        }
+
+        .offers {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .offer-item {
+            display: flex;
+            align-items: center;
+            box-shadow: 0 0.25em 0.625em -0.1875em rgba(0, 0, 0, 0.6);
+            background-color: rgba(255, 255, 255, 0.5);
+            margin-top: 0.625em;
+            margin-bottom: 0.625em;
+        }
+
+        .offer-item img {
+            width: 3.125em; 
+            height: auto;
+            border-radius: 0.3125em;
+            margin-right: 1.25em; 
+            margin-top: 0.625em;
+            margin-bottom: 0.625em;
+        }
+
+        .offer-item label {
+            display: flex;
+            align-items: center;
+        }
+
+        .offer-item input {
+            width: 1.125em; 
+            height: 1.125em; 
+            margin-right: 0.625em; 
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+                      <a href ="Home.html"> <img src="logo.png" alt="atlantic"> </a>
+        </div>
+        <nav class="navbar">
+            <ul>
+                <li><a href="women.html" accesskey="w">Women</a></li>
+                <li><a href="kids.html" accesskey="k">Kids</a></li>
+                <li><a href="men.html" accesskey="m">Men</a></li>
+            </ul>
+            <div class="searchClass">
+                <input type="text" name="search" value="Search...">
+                <button class="searchbutton" accesskey="s">Search</button>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="breadcrumb">
+            <a href="Home.html">Home</a> > <a href="seller.html">Seller's Dashboard</a> > Manage Offers
+        </div>
+
+        <main>
+            <div class="mainContent">
+                <h1>Manage Offers</h1>
+
+                <form class="offersInfo">
+                    <div class="leftSide">
+                        <h2>Available Offers</h2>
+                        <div class="offers">
+                            <div class="offer-item">
+                                <input type="checkbox" id="offer1" name="offers" value="offer1">
+                                <label for="offer1">
+                                    <img src="offer1.jpg" alt="Offer 1">
+                                    <span>Offer 1</span>
+                                </label>
+                            </div>
+                            <div class="offer-item">
+                                <input type="checkbox" id="offer2" name="offers" value="offer2">
+                                <label for="offer2">
+                                    <img src="offer2.jpg" alt="Offer 2">
+                                    <span>Offer 2</span>
+                                </label>
+                            </div>
+                            <div class="offer-item">
+                                <input type="checkbox" id="offer3" name="offers" value="offer3">
+                                <label for="offer3">
+                                    <img src="offer3.jpg" alt="Offer 3">
+                                    <span>Offer 3</span>
+                                </label>
+                            </div>
+                        </div>
+                        <button type="button" class="deletebutton" accesskey="d">Delete</button>
+                    </div>
+
+                    <div class="rightSide">
+                        <h2>Make an Offer</h2>
+                        <label for="Olabel">Offer Label: </label>
+                        <input type="text" value="Input text" id="Olabel">
+                        <label for="Odescrip">Offer Description: </label>
+                        <textarea placeholder="Input text" id="Odescrip" rows="6"></textarea>
+                        <label for="uploadIcon">Upload Icon: </label>
+                        <input type="file" id="uploadIcon" accept="image/*">
+                        <button type="submit" class="submitbutton" accesskey="u">Submit</button>
+                        <button type="reset" class="cancelbutton" accesskey="c">Cancel</button>
+                    </div>
+                </form>
+            </div>
+        </main>
+    </div>
+
+    <footer>
+        <div class="contact-info">
+            <strong>Contact Us:</strong>
+            <div class="contact-item">
+                <img src="phone.jpg" alt="Phone Icon"> +966507443395
+            </div>
+            <div class="contact-item">
+                <img src="phone2.jpg" alt="Phone Icon"> 0114738434
+            </div>
+            <div class="contact-item">
+                <img src="email.jpg" alt="Email Icon"> AtlanticMarket@gmail.com
+            </div>
+            <div>&copy;2024 Atlantic Market. All rights reserved.</div>
+        </div>
+    </footer>
+</body>
+</html>

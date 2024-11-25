@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add a New Product</title>
+    <link rel="stylesheet" href="stylesheet.css">
+    <style>
+        h1 {
+            text-align: center;
+        }
+        .productInfo {
+            display: flex;
+            justify-content: space-between;
+            width: 90%;
+            margin: 0 auto;
+        }
+
+        .leftSide, .rightSide {
+            width: 45%;
+            padding: 0.625em;
+        }
+
+        main input, textarea, select {
+            width: 100%;
+            padding: 0.625em;
+            margin-bottom: 1.25em;
+            border: 0.0625em solid #ccc;
+            box-shadow: 0 0.25em 0.625em -0.1875em rgba(0, 0, 0, 0.1);
+        }
+
+        main button {
+            width: 30%;
+            padding: 0.625em;
+            margin-top: 1.25em;
+            background-color: #333;
+            color: white;
+            border: none;
+            border-radius: 0.3125em;
+            cursor: pointer;
+        }
+
+        button.cancelbutton {
+            background-color: #999;
+        }
+
+        button:hover {
+            opacity: 0.9;
+        }
+
+        .mainContent {
+            background-color: rgba(255, 255, 255, 0.5);
+            margin-bottom: 6.25em;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+           <a href ="Home.html"> <img src="logo.png" alt="atlantic"> </a>
+        </div>
+        <nav class="navbar">
+            <ul>
+                <li><a href="women.html" accesskey="w">Women</a></li>
+                <li><a href="kids.html" accesskey="k">Kids</a></li>
+                <li><a href="men.html" accesskey="m">Men</a></li>
+            </ul>
+            <div class="searchClass">
+                <input type="text" name="search" value="Search...">
+                <button class="searchbutton" accesskey="s">Search</button>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="breadcrumb">
+            <a href="Home.html">Home</a> > <a href="seller.html">Seller's Dashboard</a> > Add a New Product
+        </div>
+
+        <main>
+            <div class="mainContent">
+                <h1>Add a New Product</h1>
+
+                <form class="productInfo">
+                    <div class="leftSide">
+                        <label for="Pname">Product Name: </label>
+                        <input type="text" value="Input text" id="Pname">
+
+                        <label for="Pprice">Product Price: </label>
+                        <input type="text" value="Input text" id="Pprice">
+
+                        <label for="Pdescrip">Product Description: </label><br>
+                        <textarea placeholder="Input text" id="Pdescrip" rows="6"></textarea>
+                    </div>
+
+                    <div class="rightSide">
+                        <label for="ptCategory">Choose Product Category:</label>
+                        <select id="ptCategory">
+                            <option value="" disabled selected>Select category</option>
+                            <option value="Woman">Woman</option>
+                            <option value="Men">Men</option>
+                            <option value="Kids">Kids</option>
+                        </select><br>
+                        <label for="Pquantity">Product Quantity: </label>
+                        <input type="text" value="Input text" id="Pquantity"><br>
+                        <label>Upload Product Image:<br> <input type="file" name="Pphoto"></label><br>
+                        <button type="submit" class="submitbutton" accesskey="u">Submit</button><br>
+                        <button type="reset" class="cancelbutton" accesskey="c">Cancel</button>
+                    </div>
+                </form>
+            </div>
+        </main>
+    </div>
+
+    <footer>
+        <div class="contact-info">
+            <strong>Contact Us:</strong>
+            <div class="contact-item">
+                <img src="phone.jpg" alt="Phone Icon"> +966507443395
+            </div>
+            <div class="contact-item">
+                <img src="phone2.jpg" alt="Phone Icon"> 0114738434
+            </div>
+            <div class="contact-item">
+                <img src="email.jpg" alt="Email Icon"> AtlanticMarket@gmail.com
+            </div>
+            <div>&copy;2024 Atlantic Market. All rights reserved.</div>
+        </div>
+    </footer>
+</body>
+</html>
