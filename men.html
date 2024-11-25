@@ -216,11 +216,10 @@
             const sortSelect = document.getElementById('sort-options');
             const myCartButton = document.getElementById('myCartButton');
 
-            const products = [
-                { id: 1, name: "Jacket", price: 120, image: "jacket.jpg", description: "Stylish winter jacket." },
-                { id: 2, name: "T-Shirt", price: 25, image: "tshirt.jpg", description: "Comfortable cotton tee." },
-                { id: 3, name: "Watch", price: 250, image: "watch.jpg", description: "Elegant analog watch." },
-                { id: 4, name: "Shoes", price: 80, image: "shoes.jpg", description: "Trendy running shoes." }
+           const products = [
+                { name: "Watch", price: 250, image: "new-menWatch.jpg", description: "Men's Elegant analog watch.", id: 3 },
+                { name: "Sunglasses", price: 90, image: "new-menSunglasses.jpg", description: "Men's Stylish UV-protection glasses.", id: 6 },
+                { name: "Belt", price: 35, image: "new-menBelt.jpg", description: "Men's Genuine leather belt.", id: 8 }
             ];
 
             const cart = JSON.parse(localStorage.getItem('cart')) || [];
