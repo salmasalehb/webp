@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang = "en">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,7 +9,8 @@
         h1 {
             text-align: center;
         }
-        .offersInfo {
+
+        .offersInfoL, .offersInfoR {
             display: flex;
             justify-content: space-between;
             width: 90%;
@@ -17,8 +18,8 @@
         }
 
         .leftSide, .rightSide {
-            width: 45%;
-            padding: 0.625em;
+            width: 85%;
+            padding: 1em;
         }
 
         main input, textarea, select {
@@ -51,6 +52,8 @@
         .mainContent {
             background-color: rgba(255, 255, 255, 0.5);
             margin-bottom: 6.25em;
+            display: flex;
+            padding: 1.25em;
         }
 
         .offers {
@@ -63,17 +66,14 @@
             align-items: center;
             box-shadow: 0 0.25em 0.625em -0.1875em rgba(0, 0, 0, 0.6);
             background-color: rgba(255, 255, 255, 0.5);
-            margin-top: 0.625em;
-            margin-bottom: 0.625em;
+            margin: 0.625em 0;
         }
 
         .offer-item img {
-            width: 3.125em; 
+            width: 3.125em;
             height: auto;
             border-radius: 0.3125em;
-            margin-right: 1.25em; 
-            margin-top: 0.625em;
-            margin-bottom: 0.625em;
+            margin: 0.625em 1.25em;
         }
 
         .offer-item label {
@@ -82,16 +82,26 @@
         }
 
         .offer-item input {
-            width: 1.125em; 
-            height: 1.125em; 
-            margin-right: 0.625em; 
+            width: 1.125em;
+            height: 1.125em;
+            margin-right: 0.625em;
+        }
+
+        .offer-item label span {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 0.5em;
+        }
+
+        .offer-item label p {
+            margin-top: 0.5em;
         }
     </style>
 </head>
 <body>
     <header>
         <div class="logo">
-                      <a href ="Home.html"> <img src="logo.png" alt="atlantic"> </a>
+            <a href="Home.html"><img src="logo.png" alt="Atlantic"></a>
         </div>
         <nav class="navbar">
             <ul>
@@ -112,48 +122,30 @@
         </div>
 
         <main>
+            <h1>Manage Offers</h1>
             <div class="mainContent">
-                <h1>Manage Offers</h1>
-
-                <form class="offersInfo">
+                <form id="deleteOffersForm" class="offersInfoL">
                     <div class="leftSide">
                         <h2>Available Offers</h2>
-                        <div class="offers">
-                            <div class="offer-item">
-                                <input type="checkbox" id="offer1" name="offers" value="offer1">
-                                <label for="offer1">
-                                    <img src="offer1.jpg" alt="Offer 1">
-                                    <span>Offer 1</span>
-                                </label>
-                            </div>
-                            <div class="offer-item">
-                                <input type="checkbox" id="offer2" name="offers" value="offer2">
-                                <label for="offer2">
-                                    <img src="offer2.jpg" alt="Offer 2">
-                                    <span>Offer 2</span>
-                                </label>
-                            </div>
-                            <div class="offer-item">
-                                <input type="checkbox" id="offer3" name="offers" value="offer3">
-                                <label for="offer3">
-                                    <img src="offer3.jpg" alt="Offer 3">
-                                    <span>Offer 3</span>
-                                </label>
-                            </div>
-                        </div>
-                        <button type="button" class="deletebutton" accesskey="d">Delete</button>
+                        <div id="offersList" class="offers"></div>
+                        <button type="button" id="deleteButton" class="deletebutton" accesskey="d">Delete</button>
                     </div>
+                </form>
 
+                <form id="addOfferForm" class="offersInfoR">
                     <div class="rightSide">
                         <h2>Make an Offer</h2>
                         <label for="Olabel">Offer Label: </label>
-                        <input type="text" value="Input text" id="Olabel">
+                        <input type="text" id="Olabel" required>
+
                         <label for="Odescrip">Offer Description: </label>
-                        <textarea placeholder="Input text" id="Odescrip" rows="6"></textarea>
+                        <textarea id="Odescrip" rows="6" required></textarea>
+
                         <label for="uploadIcon">Upload Icon: </label>
-                        <input type="file" id="uploadIcon" accept="image/*">
-                        <button type="submit" class="submitbutton" accesskey="u">Submit</button>
-                        <button type="reset" class="cancelbutton" accesskey="c">Cancel</button>
+                        <input type="file" id="uploadIcon" accept="image/*" required>
+
+                        <button type="button" id="addOfferButton" class="submitbutton">Submit</button>
+                        <button type="reset" class="cancelbutton">Cancel</button>
                     </div>
                 </form>
             </div>
@@ -172,8 +164,84 @@
             <div class="contact-item">
                 <img src="email.jpg" alt="Email Icon"> AtlanticMarket@gmail.com
             </div>
-            <div>&copy;2024 Atlantic Market. All rights reserved.</div>
+            <div>&copy; 2024 Atlantic Market. All rights reserved.</div>
         </div>
     </footer>
+
+    <script>
+        const offersList = document.getElementById("offersList");
+        const deleteButton = document.getElementById("deleteButton");
+        const addOfferButton = document.getElementById("addOfferButton");
+
+        function loadOffers() {
+            const offers = JSON.parse(localStorage.getItem("offers")) || [];
+            offersList.innerHTML = "";
+            offers.forEach((offer, index) => {
+                const offerItem = document.createElement("div");
+                offerItem.classList.add("offer-item");
+
+                offerItem.innerHTML = `
+                    <input type="checkbox" class="offer-checkbox" data-index="${index}">
+                    <label>
+                        <img src="${offer.icon}" alt="${offer.label}">
+                        <span>${offer.label}</span>
+                        <p>${offer.description}</p>
+                    </label>
+                `;
+                offersList.appendChild(offerItem);
+            });
+        }
+
+        deleteButton.addEventListener("click", () => {
+            const checkboxes = document.querySelectorAll(".offer-checkbox:checked");
+            if (checkboxes.length === 0) {
+                alert("Please select at least one offer.");
+                return;
+            }
+
+            if (confirm("Do you confirm you want to delete the selected offers?")) {
+                let offers = JSON.parse(localStorage.getItem("offers")) || [];
+                const selectedIndices = Array.from(checkboxes).map(checkbox => parseInt(checkbox.dataset.index, 10));
+                offers = offers.filter((_, index) => !selectedIndices.includes(index));
+                localStorage.setItem("offers", JSON.stringify(offers));
+                loadOffers();
+                alert("Selected offers deleted successfully!");
+            }
+        });
+
+        addOfferButton.addEventListener("click", () => {
+            const label = document.getElementById("Olabel").value.trim();
+            const description = document.getElementById("Odescrip").value.trim();
+            const uploadIcon = document.getElementById("uploadIcon");
+
+            if (!label) {
+                alert("Label cannot be empty.");
+                return;
+            }
+            if (!description) {
+                alert("Description cannot be empty.");
+                return;
+            }
+            if (!uploadIcon.files || uploadIcon.files.length === 0) {
+                alert("You must upload an icon.");
+                return;
+            }
+
+            const newOffer = {
+                label,
+                description,
+                icon: URL.createObjectURL(uploadIcon.files[0])
+            };
+
+            let offers = JSON.parse(localStorage.getItem("offers")) || [];
+            offers.push(newOffer);
+            localStorage.setItem("offers", JSON.stringify(offers));
+            loadOffers();
+            alert(`Offer "${label}" added successfully!`);
+            document.getElementById("addOfferForm").reset();
+        });
+
+        loadOffers();
+    </script>
 </body>
 </html>

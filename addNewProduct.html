@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang = "en">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,6 +9,7 @@
         h1 {
             text-align: center;
         }
+
         .productInfo {
             display: flex;
             justify-content: space-between;
@@ -57,7 +58,7 @@
 <body>
     <header>
         <div class="logo">
-           <a href ="Home.html"> <img src="logo.png" alt="atlantic"> </a>
+            <a href="Home.html"><img src="logo.png" alt="atlantic"></a>
         </div>
         <nav class="navbar">
             <ul>
@@ -80,32 +81,35 @@
         <main>
             <div class="mainContent">
                 <h1>Add a New Product</h1>
-
-                <form class="productInfo">
+                <form id="productForm" class="productInfo" method="POST" action="#" enctype="multipart/form-data">
                     <div class="leftSide">
                         <label for="Pname">Product Name: </label>
-                        <input type="text" value="Input text" id="Pname">
+                        <input type="text" name="product_name" id="Pname" required>
 
                         <label for="Pprice">Product Price: </label>
-                        <input type="text" value="Input text" id="Pprice">
+                        <input type="number" name="product_price" id="Pprice" step="0.01" required>
 
-                        <label for="Pdescrip">Product Description: </label><br>
-                        <textarea placeholder="Input text" id="Pdescrip" rows="6"></textarea>
+                        <label for="Pdescrip">Product Description: </label>
+                        <textarea name="product_description" id="Pdescrip" rows="6" required></textarea>
                     </div>
 
                     <div class="rightSide">
                         <label for="ptCategory">Choose Product Category:</label>
-                        <select id="ptCategory">
+                        <select name="product_category" id="ptCategory" required>
                             <option value="" disabled selected>Select category</option>
                             <option value="Woman">Woman</option>
                             <option value="Men">Men</option>
                             <option value="Kids">Kids</option>
-                        </select><br>
+                        </select>
+
                         <label for="Pquantity">Product Quantity: </label>
-                        <input type="text" value="Input text" id="Pquantity"><br>
-                        <label>Upload Product Image:<br> <input type="file" name="Pphoto"></label><br>
-                        <button type="submit" class="submitbutton" accesskey="u">Submit</button><br>
-                        <button type="reset" class="cancelbutton" accesskey="c">Cancel</button>
+                        <input type="number" name="product_quantity" id="Pquantity" min="1" required>
+
+                        <label>Upload Product Image: </label>
+                        <input type="file" name="product_image" id="productImage" accept="image/*" required>
+
+                        <button type="submit" id="submitButton" class="submitbutton">Submit</button>
+                        <button type="reset" class="cancelbutton">Cancel</button>
                     </div>
                 </form>
             </div>
@@ -127,5 +131,62 @@
             <div>&copy;2024 Atlantic Market. All rights reserved.</div>
         </div>
     </footer>
+
+    <script>
+        document.getElementById("submitButton").addEventListener("click", function (e) {
+    e.preventDefault();
+
+    const name = document.getElementById("Pname").value.trim();
+    const price = document.getElementById("Pprice").value.trim();
+    const description = document.getElementById("Pdescrip").value.trim();
+    const quantity = document.getElementById("Pquantity").value.trim();
+    const category = document.getElementById("ptCategory").value;
+    const imageInput = document.getElementById("productImage");
+
+    const nameCheck = /^[a-zA-Z]/;
+    if (!name || !nameCheck.test(name)) {
+        alert("Product name must start with a letter and cannot be empty.");
+        return;
+    }
+    if (isNaN(price) || price <= 0) {
+        alert("Price cannot be empty or negative.");
+        return;
+    }
+    if (isNaN(quantity) || quantity <= 0) {
+        alert("Quantity cannot be empty or negative.");
+        return;
+    }
+    if (!category) {
+        alert("Please select a category.");
+        return;
+    }
+    if (!imageInput || !imageInput.files || imageInput.files.length === 0) {
+        alert("Image must be uploaded for the product.");
+        return;
+    }
+
+    const reader = new FileReader();
+    reader.onload = function () {
+        const product = {
+            name,
+            price,
+            description,
+            quantity,
+            category,
+            image: reader.result // Base64 string from the image file
+        };
+
+        let products = JSON.parse(localStorage.getItem("sellerProducts")) || [];
+        products.push(product);
+        localStorage.setItem("sellerProducts", JSON.stringify(products));
+        alert(`Product "${name}" added successfully!`);
+        document.getElementById("productForm").reset();
+    };
+
+    reader.readAsDataURL(imageInput.files[0]);
+});
+
+
+    </script>
 </body>
 </html>
