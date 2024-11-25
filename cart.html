@@ -3,20 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Atlantic Market</title>
+    <title>Atlantic Market - Cart</title>
     <link rel="stylesheet" href="stylesheet.css">
     <style>
-        #orderSummry {
+        #orderSummary {
             width: 12em;
             height: 26em;
             background-color: rgba(255, 255, 255, 0.5);
             padding: 2.1875em;
-            display: flex;
+            display: none; /* Hidden by default */
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            border-radius: 0.625em; 
-            margin-right: 1.875em; 
+            border-radius: 0.625em;
+            margin-right: 1.875em;
         }
         p {
             font-size: 1.125em; 
@@ -26,8 +26,8 @@
             font-size: 1.5em;
         }
         img {
-            height: 13%;
-            width: 13%; 
+            height: 40%;
+            width: 40%; 
         }
         .productCard {
             display: flex;
@@ -73,9 +73,9 @@
 <body>
     <header>
         <div class="logo">
-			<a href="Home.html">
-            <img src="logo.png" alt="atlantic">
-			</a>
+            <a href="Home.html">
+                <img src="logo.png" alt="Atlantic Market Logo">
+            </a>
         </div>
         <nav class="navbar">
             <ul>
@@ -89,74 +89,172 @@
             </div>
         </nav>
     </header>
-<div style="display:flex ; flex-direction:row ; align-items: center ; ">
-    <div class="container">
-        <main>
-        <div class="breadcrumb">
-            <a href="Home.html" accesskey="h">Home</a> > <a href="userPage.html" accesskey="u">User Page</a> > Cart
+
+    <div style="display: flex; flex-direction: row; align-items: center;" id="cartContent">
+        <div class="container">
+            <main>
+                <div class="breadcrumb">
+                    <a href="Home.html" accesskey="h">Home</a> > <a href="userPage.html" accesskey="u">User Page</a> > Cart
+                </div>
+                <div>
+                    <h1 style="display: inline;">CART</h1>
+                    <input type="button" value="Delete all" id="clearCartBtn" style="display: none;"> <!-- Hidden by default -->
+                </div>
+                <div id="productList">
+                    <!-- Products dynamically rendered here -->
+                </div>
+            </main>
         </div>
-            <div>
-                <h1 style="display:inline">CART</h1>
-                <input type="button" value="Delete all">
-            </div>
-            <div id="productList">
-                <div class="productCard">
-                    <img src="new-womenJacket.webp" alt="">
-                    <div class="context">
-                        <p class="productName">Donec quam felis</p>
-                        <p>feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam</p>
-                        <input type="number" value="1" min="1"> $$
-                        <img src="rubbish-bin.png" alt=""><!-- all icons from flaticon website-->
-                    </div>
-                </div>
-                <div class="productCard">
-                    <img src="new-womenHandbag.jpg" alt="">
-                    <div class="context">
-                        <p class="productName">Maecenas nec odio</p>
-                        <p>ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante.</p>
-                        <input type="number" value="1" min="1"> $$
-                        <img src="rubbish-bin.png" alt="">
-                    </div>
-                </div>
-                <div class="productCard">
-                    <img src="new-womenShoes.png" alt="">
-                    <div class="context">
-                        <p class="productName">eros faucibus</p>
-                        <p>Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc,</p>
-                        <input type="number" value="1" min="1"> $$
-                        <img src="rubbish-bin.png" alt="">
-                    </div>
-                </div>
-            </div>
-        </main>
+
+        <aside id="orderSummary">
+            <form action="" method="get">
+                <h2 style="font-size: 1.5em; font-weight: bolder;">Order Summary</h2>
+                <p>Subtotal: $$<span id="subtotalAmount">0</span></p>
+                <p>Shipping Cost: $$<span id="shippingCost">5</span></p>
+                <p>Total: $$<span id="totalAmount">5</span></p>
+                <input type="button" value="Checkout" id="checkoutBtn">
+            </form>
+        </aside>
     </div>
-    <aside id="orderSummry">
-        <form action="" method="get">
-            <h2 style="font-size: 1.5em; font-weight: bolder;">Order summary</h2>
-            <p>Discount code :</p>
-            <input type="text" value="" style="width:6.25em;">
-            <input type="button" value="Apply" style="position:relative; left:0.3125em;">
-            <p>subtotal: $$</p>
-            <p>shipping cost: $$</p>
-            <p>Total: $$</p>
-            <input type="submit" value="Check out" style="align-self:center;">
-        </form>
-    </aside>
-</div>        
-    <footer>
-        <div class="contact-info">
-            <strong>Contact Us:</strong>
-            <div class="contact-item">
-                <img src="phone.jpg" alt="Phone Icon"> +966507443395
-            </div>
-            <div class="contact-item">
-                <img src="phone2.jpg" alt="Phone Icon"> 0114738434
-            </div>
-            <div class="contact-item">
-                <img src="email.jpg" alt="Email Icon"> AtlanticMarket@gmail.com
-            </div>
-            <div>&copy;2024 Atlantic Market. All rights reserved.</div>
+<footer style="text-align: center;">
+    <div class="contact-info">
+        <strong>Contact Us:</strong>
+        <div class="contact-item">
+            <img src="phone.jpg" alt="Phone Icon"> +966507443395
         </div>
-    </footer>
+        <div class="contact-item">
+            <img src="phone2.jpg" alt="Phone Icon"> 0114738434
+        </div>
+        <div class="contact-item">
+            <img src="email.jpg" alt="Email Icon"> AtlanticMarket@gmail.com
+        </div>
+        <div>&copy;2024 Atlantic Market. All rights reserved.</div>
+    </div>
+</footer>
+
+
+
+    <script>
+        const productList = document.getElementById('productList');
+        const subtotalAmount = document.getElementById('subtotalAmount');
+        const totalAmount = document.getElementById('totalAmount');
+        const clearCartBtn = document.getElementById('clearCartBtn');
+        const checkoutBtn = document.getElementById('checkoutBtn');
+        const orderSummary = document.getElementById('orderSummary');
+        const cartContent = document.getElementById('cartContent');
+
+        function renderCart() {
+            const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+
+            productList.innerHTML = '';
+
+            if (cartItems.length === 0) {
+                productList.innerHTML = '<p>Your cart is empty. Add items to see them here.</p>';
+                orderSummary.style.display = 'none';
+                clearCartBtn.style.display = 'none';
+                return;
+            }
+
+            orderSummary.style.display = 'flex';
+            clearCartBtn.style.display = 'inline';
+
+            let subtotal = 0;
+
+            cartItems.forEach(item => {
+                const productCard = document.createElement('div');
+                productCard.classList.add('productCard');
+                productCard.innerHTML = `
+                    <img src="${item.image}" alt="${item.name}">
+                    <div class="context">
+                        <p class="productName">${item.name}</p>
+                        <p>Price: $${item.price}</p>
+                        <input type="number" value="${item.quantity}" min="1" class="quantityInput" data-id="${item.id}">
+                        <img src="rubbish-bin.png" alt="Delete" class="deleteBtn" data-id="${item.id}">
+                    </div>
+                `;
+                productList.appendChild(productCard);
+                subtotal += item.price * item.quantity;
+            });
+
+            subtotalAmount.textContent = subtotal.toFixed(2);
+            totalAmount.textContent = (subtotal + 5).toFixed(2);
+        }
+
+        function updateQuantity(event) {
+            const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+            const productId = event.target.dataset.id;
+            const newQuantity = parseInt(event.target.value, 10);
+
+            const product = cartItems.find(item => item.id == productId);
+            if (product) {
+                product.quantity = newQuantity;
+                localStorage.setItem('cart', JSON.stringify(cartItems));
+                renderCart();
+            }
+        }
+
+        function deleteProduct(event) {
+            const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+            const productId = event.target.dataset.id;
+
+            const updatedCart = cartItems.filter(item => item.id != productId);
+            localStorage.setItem('cart', JSON.stringify(updatedCart));
+
+            const productCard = event.target.closest('.productCard');
+            if (productCard) {
+                productCard.remove();
+            }
+
+            if (updatedCart.length === 0) {
+                productList.innerHTML = '<p>Your cart is empty. Add items to see them here.</p>';
+                orderSummary.style.display = 'none';
+                clearCartBtn.style.display = 'none';
+            }
+
+            updateCartSummary();
+        }
+
+        function updateCartSummary() {
+            const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+            let subtotal = 0;
+
+            cartItems.forEach(item => {
+                subtotal += item.price * item.quantity;
+            });
+
+            subtotalAmount.textContent = subtotal.toFixed(2);
+            totalAmount.textContent = (subtotal + 5).toFixed(2);
+        }
+
+        function clearCart() {
+            localStorage.removeItem('cart');
+            renderCart();
+        }
+
+        function checkout() {
+            alert(`Proceeding to checkout. Total cost: $${totalAmount.textContent}`);
+            localStorage.clear();
+            window.location.href = 'checkout.html';
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            renderCart();
+
+            productList.addEventListener('input', event => {
+                if (event.target.classList.contains('quantityInput')) {
+                    updateQuantity(event);
+                }
+            });
+
+            productList.addEventListener('click', event => {
+                if (event.target.classList.contains('deleteBtn')) {
+                    deleteProduct(event);
+                }
+            });
+
+            clearCartBtn.addEventListener('click', clearCart);
+            checkoutBtn.addEventListener('click', checkout);
+        });
+    </script>
 </body>
 </html>
