@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Atlantic Market</title>
+    <link rel="stylesheet" href="stylesheet.css">
+    <style>
+
+        .searchClass {
+            display: flex;
+            align-items: center;
+        }
+
+        .searchbutton {
+            margin-left: 1em;
+            padding: 0.5em 1em;
+        }
+
+        .breadcrumb {
+            font-size: 0.875em;
+            margin-bottom: 1.25em;
+        }
+
+        .breadcrumb a {
+            color: blue;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+
+        .products-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.25em;
+            padding: 0.9375em;
+            background-color: #e6e6e672;
+            box-shadow: 0 0.125em 0.375em rgba(0, 0, 0, 0.1);
+            border-radius: 0.625em;
+        }
+
+        .products-title {
+            font-size: 1.25em;
+        }
+
+        .top-actions button {
+            padding: 0.625em 1.25em;
+            margin-left: 0.625em;
+            font-size: 0.875em;
+            cursor: pointer;
+            border: none;
+            background-color: #81afe1ca;
+            color: white;
+            box-shadow: 0 0.125em 0.375em rgba(0, 0, 0, 0.1);
+            border-radius: 0.3125em;
+        }
+
+        .product-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.25em;
+            justify-content: center;
+            padding: 1.25em;
+            width: 90%;
+            margin: 0 auto;
+        }
+
+        .product-card {
+            position: relative;
+            background-color: #ffffff4f;
+            border: 0.0625em solid #ddd;
+            width: calc(25% - 1.25em);
+            padding: 0.625em;
+            box-shadow: 0 0.125em 0.375em rgba(0, 0, 0, 0.1);
+            text-align: center;
+            box-sizing: border-box;
+            border-radius: 0.625em;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 20em;
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 9.375em;
+            background-color: #cccccc7c;
+            border: 0.125em solid #ddd;
+            padding: 0.3125em;
+            box-sizing: border-box;
+            border-radius: 0.625em;
+        }
+
+        .product-label {
+            font-size: 1em;
+            font-weight: bold;
+            margin-top: 0.625em;
+            flex-grow: 1;
+        }
+
+        .product-description {
+            font-size: 0.875em;
+            color: #555;
+            margin: 0.625em 0;
+            min-height: 2.5em;
+        }
+
+        .product-price {
+            font-size: 1em;
+            font-weight: bold;
+            color: #333;
+            margin-top: auto;
+            padding-top: 0.625em;
+        }
+        .cart-action input {
+            transform: scale(1.2);
+        }
+        .cart-action {
+            display: flex;
+            align-items: center;
+            margin-top: 0.625em;
+        }
+
+        .cart-action button {
+            padding: 0.5em;
+            margin: 0 0.5em;
+            cursor: pointer;
+        }
+
+        .contact-info {
+            font-size: 0.75em;
+            color: #333;
+            padding: 1.25em;
+            background-color: rgba(255, 255, 255, 0.5);
+            box-shadow: 0 0.125em 0.375em rgba(0, 0, 0, 0.1);
+            border-radius: 0.625em;
+            margin-top: 1.25em;
+            text-align: center;
+        }
+
+        .contact-info div {
+            margin: 0.625em 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .backGround {
+            justify-content: space-between;
+            align-items: center;
+            background-color: #f7f4f425;
+            box-shadow: 0 0.125em 0.375em rgba(0, 0, 0, 0.1);
+            border-radius: 0.625em;
+            width: 90%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="logo.png" alt="atlantic">
+        </div>
+        <nav class="navbar">
+            <ul>
+                <li><a href="women.html" accesskey="w">Women</a></li>
+                <li><a href="kids.html" accesskey="k">Kids</a></li>
+                <li><a href="men.html" accesskey="m">Men</a></li>
+            </ul>
+            <div class="searchClass">
+                <input type="text" name="search" value="Search...">
+                <button class="searchbutton">Search</button>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="breadcrumb">
+            <a href="Home.html">Home</a> > Category
+        </div>
+        <main>
+            <div class="backGround">
+                <div>
+                    <div class="products-header">
+                        <div class="products-title">
+                            <a href="women.html"> Women -</a>
+                            <a href="kids.html">  Kids -</a>
+                            <a href="men.html">  Men </a>
+                        </div>
+                        <div class="filter-dropdown">
+                            <form>
+                                <label>Sort by:</label>
+                                <select id="sort-options">
+                                    <optgroup label="Non">
+                                        <option value="none">-------</option>
+                                    </optgroup>
+                                    <optgroup label="Sort by Price">
+                                        <option value="price-high">Highest to Lowest</option>
+                                        <option value="price-low">Lowest to Highest</option>
+                                    </optgroup>
+                                    <optgroup label="Sort by Name">
+                                        <option value="name-az">A-Z</option>
+                                        <option value="name-za">Z-A</option>
+                                    </optgroup>
+                                </select>
+                            </form>
+                        </div>
+                    </div>
+
+                    <div class="product-list"></div>
+
+                    <div class="top-actions">
+                        <button id="myCartButton">My Cart</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <footer>
+        <div class="contact-info">
+            <strong>Contact Us:</strong>
+            <div class="contact-item">
+                <img src="phone.jpg" alt="Phone Icon"> +966507443395
+            </div>
+            <div class="contact-item">
+                <img src="phone2.jpg" alt="Phone Icon"> 0114738434
+            </div>
+            <div class="contact-item">
+                <img src="email.jpg" alt="Email Icon"> AtlanticMarket@gmail.com
+            </div>
+            <div>&copy;2024 Atlantic Market. All rights reserved.</div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const productList = document.querySelector('.product-list');
+            const sortSelect = document.getElementById('sort-options');
+            const myCartButton = document.getElementById('myCartButton');
+
+            const products = [
+                { name: "Jacket", price: 120, image: "new-womenJacket.webp", description: "Women's Stylish winter jacket.", id: 1 },
+                { name: "T-Shirt", price: 25, image: "new-kidShirt.png", description: "Kid's Comfortable cotton tee.", id: 2 },
+                { name: "Watch", price: 250, image: "new-menWatch.jpg", description: "Men's Elegant analog watch.", id: 3 },
+                { name: "Shoes", price: 80, image: "new-womenShoes.png", description: "Women's Trendy running shoes.", id: 4 },
+                { name: "Shoes", price: 40, image: "new-kidsShoes.png", description: "Kid's Durable sneakers.", id: 5 },
+                { name: "Sunglasses", price: 90, image: "new-menSunglasses.jpg", description: "Men's Stylish UV-protection glasses.", id: 6 },
+                { name: "Handbag", price: 150, image: "new-womenHandbag.jpg", description: "Women's Leather crossbody bag.", id: 7 },
+                { name: "Belt", price: 35, image: "new-menBelt.jpg", description: "Men's Genuine leather belt.", id: 8 }
+            ];
+
+            // Object to store quantity and checkbox states
+            const productStates = {};
+
+            // Initialize states for all products
+            products.forEach(product => {
+                productStates[product.id] = { quantity: 0, checked: false };
+            });
+
+            // Function to render products
+            function renderProducts(products) {
+                productList.innerHTML = ''; // Clear the list
+                products.forEach(product => {
+                    const state = productStates[product.id]; // Get saved state
+                    const productCard = document.createElement('div');
+                    productCard.classList.add('product-card');
+                    productCard.innerHTML = `
+                <img src="${product.image}" alt="${product.name}">
+                <div class="product-label">${product.name}</div>
+                <div class="product-description">${product.description}</div>
+                <div class="product-price">Price: $${product.price}</div>
+                <div class="cart-action">
+                    <input type="checkbox" class="product-checkbox" data-id="${product.id}" ${state.checked ? 'checked' : ''} />
+                    <button class="quantity-btn" data-id="${product.id}" data-action="decrease">-</button>
+                    <span class="quantity-display" id="quantity-${product.id}">${state.quantity}</span>
+                    <button class="quantity-btn" data-id="${product.id}" data-action="increase">+</button>
+                </div>
+            `;
+                    productList.appendChild(productCard);
+                });
+
+                // Add event listeners for checkboxes and quantity buttons
+                const checkboxes = document.querySelectorAll('.product-checkbox');
+                checkboxes.forEach(checkbox => {
+                    checkbox.addEventListener('change', handleCheckboxChange);
+                });
+
+                const quantityButtons = document.querySelectorAll('.quantity-btn');
+                quantityButtons.forEach(button => {
+                    button.addEventListener('click', handleQuantityChange);
+                });
+            }
+
+            // Function to handle checkbox change
+            function handleCheckboxChange(event) {
+                const checkbox = event.target;
+                const productId = checkbox.dataset.id;
+                const quantityDisplay = document.getElementById(`quantity-${productId}`);
+
+                if (checkbox.checked) {
+                    productStates[productId].quantity = Math.max(1, productStates[productId].quantity); // Ensure at least 1
+                    quantityDisplay.textContent = productStates[productId].quantity;
+                    productStates[productId].checked = true;
+                } else {
+                    productStates[productId].quantity = 0;
+                    quantityDisplay.textContent = '0';
+                    productStates[productId].checked = false;
+                }
+            }
+
+            // Function to handle quantity changes
+            function handleQuantityChange(event) {
+                const productId = event.target.dataset.id;
+                const action = event.target.dataset.action;
+                const quantityDisplay = document.getElementById(`quantity-${productId}`);
+                const checkbox = document.querySelector(`.product-checkbox[data-id="${productId}"]`);
+                let quantity = productStates[productId].quantity;
+
+                if (action === 'increase') {
+                    quantity++;
+                } else if (action === 'decrease' && quantity > 0) {
+                    quantity--;
+                }
+
+                productStates[productId].quantity = quantity;
+                quantityDisplay.textContent = quantity;
+
+                // Automatically check/uncheck the checkbox based on quantity
+                if (quantity > 0) {
+                    checkbox.checked = true;
+                    productStates[productId].checked = true;
+                } else {
+                    checkbox.checked = false;
+                    productStates[productId].checked = false;
+                }
+            }
+
+            // Event listener for sorting
+            sortSelect.addEventListener('change', function () {
+                const selectedOption = this.value;
+                let sortedProducts = [...products]; // Create a copy of the products array
+
+                if (selectedOption === 'price-low') {
+                    sortedProducts.sort((a, b) => a.price - b.price);
+                } else if (selectedOption === 'price-high') {
+                    sortedProducts.sort((a, b) => b.price - a.price);
+                } else if (selectedOption === 'name-az') {
+                    sortedProducts.sort((a, b) => a.name.localeCompare(b.name));
+                } else if (selectedOption === 'name-za') {
+                    sortedProducts.sort((a, b) => b.name.localeCompare(a.name));
+                }
+
+                renderProducts(sortedProducts); // Re-render products with current states
+            });
+
+            // Event listener for My Cart button
+            myCartButton.addEventListener('click', function () {
+                const cartItems = [];
+
+                Object.keys(productStates).forEach(productId => {
+                    const state = productStates[productId];
+                    if (state.checked && state.quantity > 0) {
+                        const product = products.find(p => p.id == productId);
+                        cartItems.push({
+                            id: productId,
+                            name: product.name,
+                            price: product.price,
+                            image: product.image,
+                            quantity: state.quantity
+                        });
+                    }
+                });
+
+                localStorage.setItem('cart', JSON.stringify(cartItems));
+                window.location.href = 'cart.html';
+            });
+
+            // Initial render
+            renderProducts(products);
+        });
+
+    </script>
+</body>
+</html>

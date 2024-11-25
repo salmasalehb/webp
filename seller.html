@@ -1,9 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Atlantic Market</title>
+    <title>Atlantic Market - Seller's Dashboard</title>
     <link rel="stylesheet" href="stylesheet.css">
     <style>
         header h1 {
@@ -80,8 +79,8 @@
             border-radius: 0.625em; 
             display: flex;
             flex-direction: column;  
-            justify-content: space-between;  
-            height: 18.75em; 
+            justify-content: space-between;
+            height: 20em;
         }
 
         .product-card img {
@@ -178,12 +177,27 @@
             text-decoration: none;
             text-align: center;
         }
+
+        .no-products-message {
+            font-size: 1.25em;
+            color: black;
+            text-align: center;
+            width: 100%;
+            padding: 150px 0;
+        }
+        .no-products-message a{
+            font-size: 1.25em;
+            color: blue;
+            text-align: center;
+            width: 100%;
+            padding: 150px 0;
+        }
     </style>
 </head>
 <body>
     <header>
         <div class="logo">
-            <a href="Home.html"><img src="logo.png" alt="atlantic"></a>
+            <img src="logo.png" alt="Atlantic Market">
         </div>
         <nav class="navbar">
             <ul>
@@ -199,84 +213,29 @@
     </header>
 
     <div class="container">
-       
         <div class="breadcrumb">
-            <a href="Home.html">Home</a> Seller's Dashboard
+            <a href="Home.html">Home</a> > Seller's Dashboard
         </div>
         <main> 
             <div class="backGround">
-        <div> 
-        <div class="products-header">
-            <div class="products-title">Products</div>
-            <div class="top-actions">
-                <a href="addNewProduct.html" class="button-link">Add a new product</a>
-                <a href="manageOffers.html" class="button-link">Manage offers</a>
+                <div> 
+                    <div class="products-header">
+                        <div class="products-title">Products</div>
+                        <div class="top-actions">
+                            <a href="addNewProduct.html" class="button-link">Add a new product</a>
+                            <a href="manageOffers.html" class="button-link">Manage offers</a>
+                        </div>
+                    </div>
+                    <div class="product-list" id="product-list">
+                    </div>
+                    <div class="no-products-message" id="no-products-message" style="display: none;">
+                        You haven't added any products yet. Please <a href="addNewProduct.html">add a new product</a>.
+                    </div>
+                </div>
             </div>
-            
-            
-        </div>
-
-        <div class="product-list">
-            <div class="product-card">
-                <img src="new-womenJacket.webp" alt="Product Image">
-                <div class="product-label">Women's Jacket</div>
-                <div class="product-description">Stylish winter jacket.</div>
-                <div class="product-price">Price: $120</div>
-            </div>
-
-            <div class="product-card">
-                <img src="new-kidShirt.png" alt="Product Image">
-                <div class="product-label">Kid's T-Shirt</div>
-                <div class="product-description">Comfortable cotton tee.</div>
-                <div class="product-price">Price: $25</div>
-            </div>
-<div class="product-card">
-                <img src="new-menWatch.jpg" alt="Product Image">
-                <div class="product-label">Men's Watch</div>
-                <div class="product-description">Elegant analog watch.</div>
-                <div class="product-price">Price: $250</div>
-            </div>
-
-            <div class="product-card">
-                <img src="new-womenShoes.png" alt="Product Image">
-                <div class="product-label">Women's Shoes</div>
-                <div class="product-description">Trendy running shoes.</div>
-                <div class="product-price">Price: $80</div>
-            </div>
-
-            <div class="product-card">
-                <img src="new-kidsShoes.png" alt="Product Image">
-                <div class="product-label">Kid's Shoes</div>
-                <div class="product-description">Durable sneakers.</div>
-                <div class="product-price">Price: $40</div>
-            </div>
-
-            <div class="product-card">
-                <img src="new-menSunglasses.jpg" alt="Product Image">
-                <div class="product-label">Men's Sunglasses</div>
-                <div class="product-description">Stylish UV-protection glasses.</div>
-                <div class="product-price">Price: $90</div>
-            </div>
-
-            <div class="product-card">
-                <img src="new-womenHandbag.jpg" alt="Product Image">
-                <div class="product-label">Women's Handbag</div>
-                <div class="product-description">Leather crossbody bag.</div>
-                <div class="product-price">Price: $150</div>
-            </div>
-
-
-            <div class="product-card">
-                <img src="new-menBelt.jpg" alt="Product Image">
-                <div class="product-label">Men's Belt</div>
-                <div class="product-description">Genuine leather belt.</div>
-                <div class="product-price">Price: $35</div>
-            </div>
-        </div>
-        </div>
-    </div>
         </main>
     </div>
+
     <footer>
         <div class="contact-info">
             <strong>Contact Us:</strong>
@@ -292,6 +251,63 @@
             <div>&copy;2024 Atlantic Market. All rights reserved.</div>
         </div>
     </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const productList = document.getElementById('product-list');
+            const noProductsMessage = document.getElementById('no-products-message');
+
+
+            const products = JSON.parse(localStorage.getItem('sellerProducts')) || [];
+
+
+            function renderProducts() {
+                productList.innerHTML = '';
+
+                if (products.length === 0) {
+                    noProductsMessage.style.display = 'block';
+                } else {
+                    noProductsMessage.style.display = 'none';
+
+                    products.forEach(product => {
+
+                        const productCard = document.createElement('div');
+                        productCard.classList.add('product-card');
+
+
+                        const productImage = document.createElement('img');
+                        productImage.src = product.image || 'default-image.jpg';
+                        productImage.alt = product.name;
+                        productCard.appendChild(productImage);
+
+
+                        const productLabel = document.createElement('div');
+                        productLabel.classList.add('product-label');
+                        productLabel.innerText = product.name;
+                        productCard.appendChild(productLabel);
+
+
+                        const productDescription = document.createElement('div');
+                        productDescription.classList.add('product-description');
+                        productDescription.innerText = product.description;
+                        productCard.appendChild(productDescription);
+
+
+                        const productPrice = document.createElement('div');
+                        productPrice.classList.add('product-price');
+                        productPrice.innerText = `Price: $${product.price}`;
+                        productCard.appendChild(productPrice);
+
+
+                        productList.appendChild(productCard);
+                    });
+                }
+            }
+
+
+            renderProducts();
+        });
+    </script>
 
 </body>
 </html>
