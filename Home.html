@@ -283,16 +283,18 @@ h2.vision {
 }
 
 @media (max-width: 768px) {
-    .overlay-text h2#weekStartDate{
-    font-size: 1rem;
-    margin:10px auto;
-        text-align:center;
-        
-        padding: 0.25em;
-        word-wrap: break-word; 
-        line-height: 1.5;
-}
-   
+    .overlay-text h2 {
+        font-size: 0.8rem; /* Shrink font size */
+        margin: 10px auto;
+        text-align: center;
+        padding: 0.5em;
+        line-height: 1.4; /* Ensure proper spacing */
+        word-wrap: break-word; /* Prevent overflow */
+    }
+
+    .overlay-text {
+        padding: 10px; /* Add padding around text for better spacing */
+    }
 }
 @media (max-width: 768px) {
     .menu-items {
