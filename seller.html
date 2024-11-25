@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atlantic Market</title>
+    <link rel="stylesheet" href="stylesheet.css">
+    <style>
+        header h1 {
+            font-size: 1.25em; 
+            margin: 0;
+        }
+
+        .searchClass {
+            display: flex; 
+            align-items: center; 
+        }
+        
+        .searchbutton {
+            margin-left: 1rem; 
+            padding: 0.5rem 1rem; 
+        }
+
+        .breadcrumb {
+            font-size: 0.875em; 
+            margin-bottom: 1.25em; 
+        }
+
+        .breadcrumb a {
+            color: blue;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+
+        .products-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.25em;
+            padding: 0.9375em; 
+            background-color: rgba(230, 230, 230, 0.45); 
+            box-shadow: 0 0.125em 0.375em rgba(0, 0, 0, 0.1); 
+            border-radius: 0.625em; 
+        }
+
+        .products-title {
+            font-size: 1.25em; 
+        }
+
+        .top-actions button {
+            padding: 0.625em 1.25em; 
+            margin-left: 0.625em; 
+            font-size: 0.875em; 
+            cursor: pointer;
+            border: none;
+            background-color: rgba(129, 175, 225, 0.8);
+            color: white;
+            box-shadow: 0 0.125em 0.375em rgba(0, 0, 0, 0.1);
+            border-radius: 0.3125em; 
+        }
+
+        .product-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.25em;
+            justify-content: center;
+            padding: 1.25em; 
+            width: 90%;
+            margin: 0 auto;
+        }
+        
+        .product-card {
+            background-color: rgba(255, 255, 255, 0.31); 
+            border: 0.0625em solid #ddd; 
+            width: calc(25% - 1.25em); 
+            padding: 0.625em; 
+            box-shadow: 0 0.125em 0.375em rgba(0, 0, 0, 0.1); 
+            text-align: center;
+            box-sizing: border-box;
+            border-radius: 0.625em; 
+            display: flex;
+            flex-direction: column;  
+            justify-content: space-between;  
+            height: 18.75em; 
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 9.375em; 
+            background-color: rgba(204, 204, 204, 0.49);
+            border: 0.125em solid #ddd; 
+            padding: 0.3125em; 
+            box-sizing: border-box;
+            border-radius: 0.625em; 
+        }
+        
+        .product-label {
+            font-size: 1em; 
+            font-weight: bold;
+            margin-top: 0.625em; 
+            flex-grow: 1;
+        }
+        
+        .product-description {
+            font-size: 0.875em; 
+            color: #555;
+            margin: 0.625em 0; 
+            min-height: 2.5em;
+        }
+        
+        .product-price {
+            font-size: 1em; 
+            font-weight: bold;
+            color: #333;
+            margin-top: auto;
+            padding-top: 0.625em; 
+        }
+
+        .contact-info {
+            font-size: 0.75em;
+            color: #333;
+            padding: 1.25em; 
+            background-color: rgba(255, 255, 255, 0.5);
+            box-shadow: 0 0.125em 0.375em rgba(0, 0, 0, 0.1); 
+            border-radius: 0.625em; 
+            margin-top: 1.25em; 
+            text-align: center;
+        }
+              
+        .contact-info div {
+            margin: 0.625em 0; 
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+              
+        .contact-info strong {
+            font-size: 0.875em; 
+            margin-bottom: 0.9375em; 
+            display: block;
+            text-align: center;
+        }
+              
+        .contact-info div img {
+            width: 1em; 
+            height: 1em; 
+            margin-right: 0.5em; 
+        }
+
+        .contact-info .contact-item {
+            display: flex;
+            align-items: center;
+            justify-content: start;
+            padding: 0.3125em 0; 
+        }
+        
+        .backGround {
+            justify-content: space-between;
+            align-items: center;
+            background-color: rgba(247, 244, 244, 0.15);
+            box-shadow: 0 0.125em 0.375em rgba(0, 0, 0, 0.1); 
+            border-radius: 0.625em; 
+            width: 90%; 
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .button-link {
+            display: inline-block;
+            padding: 0.625em 1.25em; 
+            font-size: 0.875em; 
+            cursor: pointer;
+            border: none;
+            background-color: rgba(129, 175, 225, 0.8);
+            color: white;
+            box-shadow: 0 0.125em 0.375em rgba(0, 0, 0, 0.1); 
+            border-radius: 0.3125em; 
+            text-decoration: none;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="Home.html"><img src="logo.png" alt="atlantic"></a>
+        </div>
+        <nav class="navbar">
+            <ul>
+                <li><a href="women.html" accesskey="w">Women</a></li>
+                <li><a href="kids.html" accesskey="k">Kids</a></li>
+                <li><a href="men.html" accesskey="m">Men</a></li>
+            </ul>
+            <div class="searchClass">
+                <input type="text" name="search" value="Search...">
+                <button class="searchbutton">Search</button>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">
+       
+        <div class="breadcrumb">
+            <a href="Home.html">Home</a> Seller's Dashboard
+        </div>
+        <main> 
+            <div class="backGround">
+        <div> 
+        <div class="products-header">
+            <div class="products-title">Products</div>
+            <div class="top-actions">
+                <a href="addNewProduct.html" class="button-link">Add a new product</a>
+                <a href="manageOffers.html" class="button-link">Manage offers</a>
+            </div>
+            
+            
+        </div>
+
+        <div class="product-list">
+            <div class="product-card">
+                <img src="new-womenJacket.webp" alt="Product Image">
+                <div class="product-label">Women's Jacket</div>
+                <div class="product-description">Stylish winter jacket.</div>
+                <div class="product-price">Price: $120</div>
+            </div>
+
+            <div class="product-card">
+                <img src="new-kidShirt.png" alt="Product Image">
+                <div class="product-label">Kid's T-Shirt</div>
+                <div class="product-description">Comfortable cotton tee.</div>
+                <div class="product-price">Price: $25</div>
+            </div>
+<div class="product-card">
+                <img src="new-menWatch.jpg" alt="Product Image">
+                <div class="product-label">Men's Watch</div>
+                <div class="product-description">Elegant analog watch.</div>
+                <div class="product-price">Price: $250</div>
+            </div>
+
+            <div class="product-card">
+                <img src="new-womenShoes.png" alt="Product Image">
+                <div class="product-label">Women's Shoes</div>
+                <div class="product-description">Trendy running shoes.</div>
+                <div class="product-price">Price: $80</div>
+            </div>
+
+            <div class="product-card">
+                <img src="new-kidsShoes.png" alt="Product Image">
+                <div class="product-label">Kid's Shoes</div>
+                <div class="product-description">Durable sneakers.</div>
+                <div class="product-price">Price: $40</div>
+            </div>
+
+            <div class="product-card">
+                <img src="new-menSunglasses.jpg" alt="Product Image">
+                <div class="product-label">Men's Sunglasses</div>
+                <div class="product-description">Stylish UV-protection glasses.</div>
+                <div class="product-price">Price: $90</div>
+            </div>
+
+            <div class="product-card">
+                <img src="new-womenHandbag.jpg" alt="Product Image">
+                <div class="product-label">Women's Handbag</div>
+                <div class="product-description">Leather crossbody bag.</div>
+                <div class="product-price">Price: $150</div>
+            </div>
+
+
+            <div class="product-card">
+                <img src="new-menBelt.jpg" alt="Product Image">
+                <div class="product-label">Men's Belt</div>
+                <div class="product-description">Genuine leather belt.</div>
+                <div class="product-price">Price: $35</div>
+            </div>
+        </div>
+        </div>
+    </div>
+        </main>
+    </div>
+    <footer>
+        <div class="contact-info">
+            <strong>Contact Us:</strong>
+            <div class="contact-item">
+                <img src="phone.jpg" alt="Phone Icon"> +966507443395
+            </div>
+            <div class="contact-item">
+                <img src="phone2.jpg" alt="Phone Icon"> 0114738434
+            </div>
+            <div class="contact-item">
+                <img src="email.jpg" alt="Email Icon"> AtlanticMarket@gmail.com
+            </div>
+            <div>&copy;2024 Atlantic Market. All rights reserved.</div>
+        </div>
+    </footer>
+
+</body>
+</html>

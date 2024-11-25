@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atlantic Market</title>
+    <link rel="stylesheet" href="stylesheet.css">
+    <style>
+        #orderSummry {
+            width: 12em;
+            height: 26em;
+            background-color: rgba(255, 255, 255, 0.5);
+            padding: 2.1875em;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border-radius: 0.625em; 
+            margin-right: 1.875em; 
+        }
+        p {
+            font-size: 1.125em; 
+        }
+        .productName {
+            font-weight: bold;
+            font-size: 1.5em;
+        }
+        img {
+            height: 13%;
+            width: 13%; 
+        }
+        .productCard {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            align-items: center;
+            flex: 1 1 auto;
+            margin: 0.8em;
+            background-color: rgba(255, 255, 255, 0.5);
+            text-align: center;
+        }
+        #productList {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            align-items: center;
+            flex: 1 1 auto;
+            margin: 1em;
+        }
+        .context {
+            flex: 3 1 0%;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 1.2em; 
+        }
+        .context img {
+            width: 0.9375em; 
+            height: 0.9375em; 
+            align-self: flex-end;
+        }
+        input[type="number"] {
+            width: 2.5em; 
+        }
+        input[value="Delete all"] {
+            display: inline;
+            position: relative;
+            left: 70em; 
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+			<a href="Home.html">
+            <img src="logo.png" alt="atlantic">
+			</a>
+        </div>
+        <nav class="navbar">
+            <ul>
+                <li><a href="women.html" accesskey="w">Women</a></li>
+                <li><a href="kids.html" accesskey="k">Kids</a></li>
+                <li><a href="men.html" accesskey="m">Men</a></li>
+            </ul>
+            <div class="searchClass">
+                <input type="text" name="search" value="Search...">
+                <button class="searchbutton">Search</button>
+            </div>
+        </nav>
+    </header>
+<div style="display:flex ; flex-direction:row ; align-items: center ; ">
+    <div class="container">
+        <main>
+        <div class="breadcrumb">
+            <a href="Home.html" accesskey="h">Home</a> > <a href="userPage.html" accesskey="u">User Page</a> > Cart
+        </div>
+            <div>
+                <h1 style="display:inline">CART</h1>
+                <input type="button" value="Delete all">
+            </div>
+            <div id="productList">
+                <div class="productCard">
+                    <img src="new-womenJacket.webp" alt="">
+                    <div class="context">
+                        <p class="productName">Donec quam felis</p>
+                        <p>feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam</p>
+                        <input type="number" value="1" min="1"> $$
+                        <img src="rubbish-bin.png" alt=""><!-- all icons from flaticon website-->
+                    </div>
+                </div>
+                <div class="productCard">
+                    <img src="new-womenHandbag.jpg" alt="">
+                    <div class="context">
+                        <p class="productName">Maecenas nec odio</p>
+                        <p>ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante.</p>
+                        <input type="number" value="1" min="1"> $$
+                        <img src="rubbish-bin.png" alt="">
+                    </div>
+                </div>
+                <div class="productCard">
+                    <img src="new-womenShoes.png" alt="">
+                    <div class="context">
+                        <p class="productName">eros faucibus</p>
+                        <p>Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc,</p>
+                        <input type="number" value="1" min="1"> $$
+                        <img src="rubbish-bin.png" alt="">
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <aside id="orderSummry">
+        <form action="" method="get">
+            <h2 style="font-size: 1.5em; font-weight: bolder;">Order summary</h2>
+            <p>Discount code :</p>
+            <input type="text" value="" style="width:6.25em;">
+            <input type="button" value="Apply" style="position:relative; left:0.3125em;">
+            <p>subtotal: $$</p>
+            <p>shipping cost: $$</p>
+            <p>Total: $$</p>
+            <input type="submit" value="Check out" style="align-self:center;">
+        </form>
+    </aside>
+</div>        
+    <footer>
+        <div class="contact-info">
+            <strong>Contact Us:</strong>
+            <div class="contact-item">
+                <img src="phone.jpg" alt="Phone Icon"> +966507443395
+            </div>
+            <div class="contact-item">
+                <img src="phone2.jpg" alt="Phone Icon"> 0114738434
+            </div>
+            <div class="contact-item">
+                <img src="email.jpg" alt="Email Icon"> AtlanticMarket@gmail.com
+            </div>
+            <div>&copy;2024 Atlantic Market. All rights reserved.</div>
+        </div>
+    </footer>
+</body>
+</html>
